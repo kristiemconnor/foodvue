@@ -6,10 +6,14 @@
       <router-link to="/about">About</router-link>
       |
       <router-link to="/signup">Create Account</router-link>
-      <br />
+      |
       <router-link to="/login">Login</router-link>
       |
       <router-link to="/logout">Logout</router-link>
+      |
+      <router-link to="/users/me/edit">Edit User Info</router-link>
+      |
+      <router-link to="/ingredients/me">View Pantry</router-link>
     </div>
     <router-view />
   </div>

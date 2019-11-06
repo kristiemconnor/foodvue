@@ -1,5 +1,5 @@
 <template>
-  <div class="user-edit">
+  <div class="users-edit">
     <h1>Edit User Information</h1>
 
     <div class="current">Hello, {{ user.first_name }} {{ user.last_name }}.</div>
