@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import UsersEdit from "../views/users/Edit.vue";
 import Ingredients from "../views/Ingredients.vue";
+import Profile from "../views/users/Profile.vue";
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,11 @@ const routes = [
     path: "/ingredients/me",
     name: "users-ingredients",
     component: Ingredients
+  },
+  {
+    path: "/users/me/profile",
+    name: "users-profile",
+    component: Profile
   }
 ];
 

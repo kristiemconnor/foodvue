@@ -11,9 +11,7 @@
       |
       <router-link to="/logout">Logout</router-link>
       |
-      <router-link to="/users/me/edit">Edit User Info</router-link>
-      |
-      <router-link to="/ingredients/me">View Pantry</router-link>
+      <router-link to="/users/me/profile">View Profile</router-link>
     </div>
     <router-view />
   </div>

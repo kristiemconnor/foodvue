@@ -56,7 +56,7 @@ export default {
       axios
         .patch("/api/users/me", params)
         .then(response => {
-          this.$router.push("/users/me");
+          this.$router.push("/users/me/profile");
         })
         .catch(error => {
           this.errors = error.response.data.errors;

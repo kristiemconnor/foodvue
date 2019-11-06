@@ -1,20 +1,18 @@
 <template>
   <div class="users-ingredients">
-    <div class="header">
-      <h4>{{ current_user.first_name }} {{ current_user.last_name }}'s Pantry</h4>
+    <!--     <div class="header">
+      <h4>{{ user.first_name }} {{ user.last_name }}'s Pantry</h4>
       <br />
-      <h4>Ingredients on hand: {{ ingredients.length }}</h4>
-    </div>
+      <h4>Ingredients on hand: {{ user.ingredients.length }}</h4>
+    </div> -->
     <br />
+
     <div v-for="ingredient in ingredients">{{ ingredient.name }} | {{ ingredient.expiration }}</div>
   </div>
 </template>
 
-<style>
-div.header {
-  text-align: left;
-}
-</style>
+<style></style>
+
 <script>
 import axios from "axios";
 export default {
@@ -22,18 +20,17 @@ export default {
     return {
       user: {},
       ingredients: this.user.ingredients,
-      // firstName: this.user.first_name,
-      // lastName: this.user.last_name,
       errors: []
     };
   },
   created: function() {
     axios.get("/api/users/me").then(response => {
-      this.ingredients = response.data;
-      console.log(this.ingredients);
-      console.log(this.user);
+      console.log(response.data);
+      this.user = response.data;
+      this.ingredients = response.data.ingredients;
     });
   },
+
   methods: {}
 };
 </script>
