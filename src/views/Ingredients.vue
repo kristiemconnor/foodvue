@@ -5,24 +5,26 @@
       <br />
       <h4>Ingredients on hand: {{ user.ingredients.length }}</h4>
     </div>
-    <div v-for="ingredient in ingredients">{{ ingredient.name }} | {{ ingredient.expiration }}</div><br>
-  <div class="new-ingredient">
-    <h4>Add an ingredient</h4>
-    <br>
-    Name: <input type="text" v-model="newIngredientName"><br>
-    Expiration: <input type="text" v-model="newIngredientExpiration"><br>
-    <button v-on:click="addIngredient">Add</button>
+    <div v-for="ingredient in ingredients">
+      {{ ingredient.name }} | {{ ingredient.expiration }} 
+      <br>
+      <div class="edit-ingredient">
+        <h4>Edit an Ingredient</h4>
+          Name: <input type="text" v-model="ingredient.name">
+          Expiration: <input type="text" v-model="ingredient.expiration">
+          <button v-on:click="updateIngredient(ingredient)">Edit</button>
+          <button v-on:click="destroyIngredient(ingredient)">Delete</button>
+      </div>
 
-  </div>
-  <br>
-  <div class="edit-ingredient">
-    <h4>Edit an Ingredient</h4>
+    </div>   
     <br>
-    New Name: <input type="text" v-model="ingredient.name">
+    <div class="new-ingredient">
+      <h4>Add an ingredient</h4>
+      Name: <input type="text" v-model="newIngredientName"><br>
+      Expiration: <input type="text" v-model="newIngredientExpiration"><br>
+      <button v-on:click="addIngredient">Add</button>
+    </div>
     <br>
-    New Expiration: <input type="text" v-model="ingredient.expiration">
-    <button v-on:click="updateIngredient(ingredient)">Update</button><button v-on:click="destroyIngredient(ingredient)">Delete</button>
-  </div>
 
   </div>
 </template>
@@ -38,7 +40,8 @@ export default {
       ingredients: [],
       errors: [],
       newIngredientName: "",
-      newIngredientExpiration: ""
+      newIngredientExpiration: "",
+      currentIngredient: ""
     };
   },
   created: function() {
@@ -63,17 +66,23 @@ export default {
       });
     },
     updateIngredient: function(ingredient) {
+      console.log("edit");
       var params = {
-        name: this.ingredient.name,
-        expiration: this.ingredient.expiration
+        name: ingredient.name,
+        expiration: ingredient.expiration
       };
-      axios.patch("api/ingredients/", ingredient.id, params).then(response => {
+      axios.patch("/api/ingredients/" + ingredient.id, params).then(response => {
         this.ingredient = {};
-      });
+        console.log(response.data);
+      })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+          console.log(error.response.data.errors);
+        });
     },
     destroyIngredient: function(ingredient) {
       axios.delete("/api/ingredients/" + ingredient.id).then(response => {
-        this.$router.push("/ingredients/");
+        this.$router.push("/ingredients/me");
       });
     }
   }

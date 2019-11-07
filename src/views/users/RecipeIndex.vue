@@ -1,4 +1,7 @@
-<template></template>
+<template>
+  
+  
+</template>
 <style></style>
 
 
@@ -11,16 +14,17 @@ export default {
       recipes: [],
       search: "onion",
     };
-  }
-}
+  },
+  created: function() {
+    axios.get("/api/recipes/?i=" + this.search).then(response =>{
+      this.recipes = response.data;
+      console.log(response.data);
+    });
+  },
 
-created: function() {
-  axios.get("/api/recipes/=" + this.search).then(response =>{
-    this.recipes = response.data;
-    console.log(response.data);
-  });
-},
+  methods: {},
+};
 
-methods: {},
+
 
 </script>
