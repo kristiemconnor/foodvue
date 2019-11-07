@@ -2,28 +2,30 @@
   <div class="users-ingredients">
     <div class="header">
       <h4>{{ user.first_name }} {{ user.last_name }}'s Pantry</h4>
-      <br />
-      <h4>Ingredients on hand: {{ user.ingredients.length }}</h4>
+        <h4>Ingredients on hand: {{ user.ingredients.length }}</h4>
+      <br>
+      <div class="new-ingredient">
+        <h4>Add an ingredient</h4>
+        Name: <input type="text" v-model="newIngredientName"><br>
+        Expiration: <input type="text" v-model="newIngredientExpiration"><br>
+        <button v-on:click="addIngredient">Add</button>
+      </div>
+
     </div>
+    <br>
     <div v-for="ingredient in ingredients">
       {{ ingredient.name }} | {{ ingredient.expiration }} 
-      <br>
       <div class="edit-ingredient">
         <h4>Edit an Ingredient</h4>
           Name: <input type="text" v-model="ingredient.name">
           Expiration: <input type="text" v-model="ingredient.expiration">
           <button v-on:click="updateIngredient(ingredient)">Edit</button>
           <button v-on:click="destroyIngredient(ingredient)">Delete</button>
+          <br>
       </div>
 
     </div>   
     <br>
-    <div class="new-ingredient">
-      <h4>Add an ingredient</h4>
-      Name: <input type="text" v-model="newIngredientName"><br>
-      Expiration: <input type="text" v-model="newIngredientExpiration"><br>
-      <button v-on:click="addIngredient">Add</button>
-    </div>
     <br>
 
   </div>
@@ -63,7 +65,11 @@ export default {
         this.ingredients.push(response.data);
         this.newIngredientName = "";
         this.newIngredientExpiration = "";
-      });
+      })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+          console.log(error.response.data.errors);
+        });
     },
     updateIngredient: function(ingredient) {
       console.log("edit");
@@ -73,7 +79,6 @@ export default {
       };
       axios.patch("/api/ingredients/" + ingredient.id, params).then(response => {
         this.ingredient = {};
-        console.log(response.data);
       })
         .catch(error => {
           this.errors = error.response.data.errors;
