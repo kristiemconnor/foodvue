@@ -82,8 +82,14 @@ export default {
     },
     destroyIngredient: function(ingredient) {
       axios.delete("/api/ingredients/" + ingredient.id).then(response => {
-        this.$router.push("/ingredients/me");
-      });
+        var index = this.ingredients.indexOf(ingredient);
+        this.ingredients.splice(index, 1);
+      })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+          console.log(error.response.data.errors);
+
+        });
     }
   }
 };
