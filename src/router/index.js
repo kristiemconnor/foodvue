@@ -8,6 +8,7 @@ import UsersEdit from "../views/users/Edit.vue";
 import Ingredients from "../views/Ingredients.vue";
 import Profile from "../views/users/Profile.vue";
 import RecipeIndex from "../views/users/RecipeIndex.vue";
+import RecipeShow from "../views/users/RecipeShow.vue";
 
 Vue.use(VueRouter);
 
@@ -59,7 +60,12 @@ const routes = [
     path: "/users/me/profile",
     name: "users-profile",
     component: Profile
-  }
+  },
+  {
+    path: "/recipes/:id",
+    name: "recipe-show",
+    component: RecipeShow
+  },
 ];
 
 const router = new VueRouter({

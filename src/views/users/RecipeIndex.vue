@@ -1,24 +1,21 @@
 <template>
   <div class="recipe-index">
     <h4>Recipes containing your selected ingredients</h4>
-    <br>{{ recipes }}
+    <br>
     <div v-for="recipe in recipes">
-      {{ recipe.thumbnail }}
+<!-- show image with dynamic variable for each recipe IF an image URL exists
+
+ -->      {{ recipe.thumbnail }}
       <br>
       {{ recipe.title }}
-      <br>
       <a class="recipe-link" v-bind:href="recipe.href"></a>
-      <h5>Contains {{ recipe.ingredients }} </h5>
+      <h4>Contains {{ recipe.ingredients }}. </h4>
     </div>
   </div>
 </template>
-
-
 <style></style>
-
 <script>
 import axios from "axios";
-
 export default {
   data: function() {
     return {
@@ -34,12 +31,7 @@ export default {
         this.errors = error.response.data.errors;
         console.log(error.response.data.errors);
       });
-
   },
-
   methods: {},
 };
-
-
-
 </script>
