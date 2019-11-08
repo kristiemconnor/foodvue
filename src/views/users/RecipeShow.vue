@@ -1,9 +1,8 @@
 <template>
   <div class="recipe-show">
- {{ recipe.thumbnail }}
  <br>
 <!-- image -->
-  <img src="recipe.thumbnail" alt="recipe image">
+  <img v-bind:src="recipe.thumbnail" alt="recipe image">
     <h4>Selected Recipe: {{ recipe.title }}</h4>
       <h4>Contains {{ recipe.ingredients }} </h4>
       <h5><a 
