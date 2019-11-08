@@ -3,9 +3,7 @@
     <h4>Recipes containing your selected ingredients</h4>
     <br>
     <div v-for="recipe in recipes">
-<!-- show image with dynamic variable for each recipe IF an image URL exists
-
- -->      {{ recipe.thumbnail }}
+<img v-bind:src="recipe.thumbnail" alt ="recipe image">
       <br>
       {{ recipe.title }}
       <a class="recipe-link" v-bind:href="recipe.href"></a>
