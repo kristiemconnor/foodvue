@@ -7,14 +7,16 @@
       <div class="new-ingredient">
         <h4>Add an ingredient</h4>
         Name: <input type="text" v-model="newIngredientName"><br>
-        Expiration: <input type="text" v-model="newIngredientExpiration"><br>
+        Expiration: <input type="date" v-model="newIngredientExpiration"><br>
         <button v-on:click="addIngredient">Add</button>
       </div><br>
 
     </div>
-    
+    <button v-on:click="findRecipes()">Find Recipes</button>
     <div v-for="ingredient in ingredients">
-      {{ ingredient.name }} | {{ ingredient.expiration }} 
+      <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients">
+      <label :for="ingredient.id">{{ ingredient.name }}</label>
+       | {{ ingredient.expiration }} 
       <div class="edit-ingredient">
         <h4>Edit Ingredient</h4>
           <h5>Name: <input type="text" v-model="ingredient.name">
@@ -38,7 +40,6 @@ import axios from "axios";
 import Vue2Filters from "vue2-filters";
 
 export default {
-  mixins: [Vue2Filters.mixin]
   data: function() {
     return {
       user: {},
@@ -46,7 +47,8 @@ export default {
       errors: [],
       newIngredientName: "",
       newIngredientExpiration: "",
-      currentIngredient: ""
+      currentIngredient: "",
+      checkedIngredients: []
     };
   },
   created: function() {
@@ -98,7 +100,14 @@ export default {
           console.log(error.response.data.errors);
 
         });
+    },
+    findRecipes: function() {
+      var params = {
+        i: this.checkedIngredients
+      };
+      this.$router.push({path: "/recipes", query: params});  
     }
+
   }
 };
 </script>

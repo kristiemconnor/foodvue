@@ -6,9 +6,8 @@
 <img v-bind:src="recipe.thumbnail" alt ="recipe image">
       <br>
       {{ recipe.title }}
-      <a class="recipe-link" v-bind:href="recipe.href"></a>
       <h4>Contains {{ recipe.ingredients }}. </h4>
-      <a class="recipelink" v-bind:href="recipe.href">See more</a><br>
+      <a class="recipelink" target="_blank" v-bind:href="recipe.href">See more</a><br>
     </div>
   </div>
 </template>
@@ -49,7 +48,8 @@ export default {
     };
   },
   created: function() {
-    axios.get("/api/recipes/").then(response =>{
+    axios.get("/api/recipes/", {params: this.$route.query}).then(response =>{
+      console.log(this.$route.query);
       this.recipes = response.data;
       console.log(response.data);
     })
