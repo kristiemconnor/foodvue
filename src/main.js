@@ -14,7 +14,6 @@ if (jwt) {
 }
 
 Vue.config.productionTip = false;
-Vue.use(Vue2Filters);
 
 new Vue({
   router,
