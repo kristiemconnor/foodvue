@@ -20,7 +20,7 @@
       <div class="edit-ingredient">
         <h4>Edit Ingredient</h4>
           <h5>Name: <input type="text" v-model="ingredient.name">
-          Expiration: <input type="text" v-model="ingredient.expiration">
+          Expiration: <input type="date" v-model="ingredient.expiration">
           <button v-on:click="updateIngredient(ingredient)">Edit</button>
           <button v-on:click="destroyIngredient(ingredient)">Delete</button></h5>
             <br>
