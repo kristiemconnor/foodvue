@@ -9,19 +9,19 @@
         Name: <input type="text" v-model="newIngredientName"><br>
         Expiration: <input type="text" v-model="newIngredientExpiration"><br>
         <button v-on:click="addIngredient">Add</button>
-      </div>
+      </div><br>
 
     </div>
-    <br>
+    
     <div v-for="ingredient in ingredients">
       {{ ingredient.name }} | {{ ingredient.expiration }} 
       <div class="edit-ingredient">
-        <h4>Edit an Ingredient</h4>
-          Name: <input type="text" v-model="ingredient.name">
+        <h4>Edit Ingredient</h4>
+          <h5>Name: <input type="text" v-model="ingredient.name">
           Expiration: <input type="text" v-model="ingredient.expiration">
           <button v-on:click="updateIngredient(ingredient)">Edit</button>
-          <button v-on:click="destroyIngredient(ingredient)">Delete</button>
-          <br>
+          <button v-on:click="destroyIngredient(ingredient)">Delete</button></h5>
+            <br>
       </div>
 
     </div>   
@@ -35,7 +35,10 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
+
 export default {
+  mixins: [Vue2Filters.mixin]
   data: function() {
     return {
       user: {},

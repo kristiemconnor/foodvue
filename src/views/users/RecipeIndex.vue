@@ -8,10 +8,38 @@
       {{ recipe.title }}
       <a class="recipe-link" v-bind:href="recipe.href"></a>
       <h4>Contains {{ recipe.ingredients }}. </h4>
+      <a class="recipelink" v-bind:href="recipe.href">See more</a><br>
     </div>
   </div>
 </template>
-<style></style>
+<style>
+  a:link {
+    text-decoration: none;
+    color: green;  
+  }
+
+  a:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: orange;
+  }
+
+  a:active {
+    text-decoration: underline;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
 <script>
 import axios from "axios";
 export default {
