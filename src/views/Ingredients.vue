@@ -1,23 +1,22 @@
 <template>
   <div class="users-ingredients">
-    <div class="header">
       <h4>{{ user.first_name }} {{ user.last_name }}'s Pantry</h4>
         <h4>Ingredients on hand: {{ user.ingredients.length }}</h4>
       <br>
-      <div class="new-ingredient">
         <h4>Add an ingredient</h4>
         Name: <input type="text" v-model="newIngredientName"><br>
         Expiration: <input type="date" v-model="newIngredientExpiration"><br>
         <button v-on:click="addIngredient">Add</button>
-      </div><br>
-
-    </div>
+        <br>
+      <div class="sort">
+        <button v-on:click="setSortAttribute('name')" class="btn btn-primary"> Sort Alphabetically</button>
+        <button v-on:click="setSortAttribute('expiration')" class="btn btn-primary"> Sort by Expiration</button>
+      </div>
     <button v-on:click="findRecipes()">Find Recipes</button>
     <div v-for="ingredient in ingredients">
       <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients">
       <label :for="ingredient.id">{{ ingredient.name }}</label>
        | {{ ingredient.expiration }} 
-      <div class="edit-ingredient">
         <h4>Edit Ingredient</h4>
           <h5>Name: <input type="text" v-model="ingredient.name">
           Expiration: <input type="date" v-model="ingredient.expiration">
@@ -25,11 +24,6 @@
           <button v-on:click="destroyIngredient(ingredient)">Delete</button></h5>
             <br>
       </div>
-
-    </div>   
-    <br>
-    <br>
-
   </div>
 </template>
 
@@ -40,6 +34,7 @@ import axios from "axios";
 import Vue2Filters from "vue2-filters";
 
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       user: {},
@@ -48,7 +43,8 @@ export default {
       newIngredientName: "",
       newIngredientExpiration: "",
       currentIngredient: "",
-      checkedIngredients: []
+      checkedIngredients: [],
+      sortAttribute: "name"
     };
   },
   created: function() {

@@ -1,4 +1,5 @@
 import Vue from "vue";
+import Vue2Filters from 'vue2-filters';
 import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
@@ -13,6 +14,7 @@ if (jwt) {
 }
 
 Vue.config.productionTip = false;
+Vue.use(Vue2Filters);
 
 new Vue({
   router,
