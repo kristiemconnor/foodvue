@@ -9,21 +9,22 @@
         <button v-on:click="addIngredient">Add</button>
         <br>
       <div class="sort">
-        <button v-on:click="setSortAttribute('name')" class="btn btn-primary"> Sort Alphabetically</button>
-        <button v-on:click="setSortAttribute('expiration')" class="btn btn-primary"> Sort by Expiration</button>
+        <button v-on:click="setSortAttribute('name')"> Sort Alphabetically</button>
+        <button v-on:click="setSortAttribute('expiration')"> Sort by Expiration
+          <span v-if="sortAttribute === 'name' && sortAscending === 1"></span></button>
       </div>
     <button v-on:click="findRecipes()">Find Recipes</button>
-    <div v-for="ingredient in ingredients">
+    <li v-for="ingredient in orderBy(ingredients, 'expiration')">
       <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients">
       <label :for="ingredient.id">{{ ingredient.name }}</label>
-       | {{ ingredient.expiration }} 
+       | Expires {{ relativeExpiration(ingredient.expiration) }} 
         <h4>Edit Ingredient</h4>
           <h5>Name: <input type="text" v-model="ingredient.name">
           Expiration: <input type="date" v-model="ingredient.expiration">
           <button v-on:click="updateIngredient(ingredient)">Edit</button>
           <button v-on:click="destroyIngredient(ingredient)">Delete</button></h5>
             <br>
-      </div>
+      </li>
   </div>
 </template>
 
@@ -44,7 +45,7 @@ export default {
       newIngredientExpiration: "",
       currentIngredient: "",
       checkedIngredients: [],
-      sortAttribute: "name"
+      sortAttribute: ""
     };
   },
   created: function() {
@@ -84,7 +85,7 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
           console.log(error.response.data.errors);
-        });
+        })
     },
     destroyIngredient: function(ingredient) {
       axios.delete("/api/ingredients/" + ingredient.id).then(response => {
@@ -102,8 +103,19 @@ export default {
         i: this.checkedIngredients
       };
       this.$router.push({path: "/recipes", query: params});  
+    },
+    relativeExpiration: function(expiration) {
+      var moment = require('moment');
+      return moment(expiration).endOf('day').fromNow();
+    },
+    setSortAttribute: function(attribute) {
+      if (this.sortAttribute === attribute) {
+        this.sortAscending = this.sortAscending * -1;
+      } else {
+        this.sortAscending = 1;
+        this.sortAttribute = attribute;
+      }
     }
-
-  }
+  },
 };
 </script>
