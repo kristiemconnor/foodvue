@@ -42,16 +42,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="widget">
-                        <p>© 2016 <a href="#">Risotto</a>. All rights reserved. Designed with love by 2the.me.</p>
+                        <p>© 2016 <a href="https://wrapbootstrap.com/user/web-master72" title="Risotto">Risotto</a>. All rights reserved. Designed by 2the.me.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="widget">
                         <ul class="social-icons">
-                            <li><a href="#" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" data-original-title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-                            
+                          <li><a href="http://www.recipepuppy.com/about/api/" title="Recipe Puppy">Powered by Recipe Puppy.</a></li>
+                            <li><a href="http://www.twitter.com/foodparty4" title="tweet tweet" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>                            
                         </ul>
                     </div>
                 </div>

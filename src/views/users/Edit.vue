@@ -1,37 +1,55 @@
-<template>
-  <div class="users-edit">
-    <h1>Edit User Information</h1>
+<template> <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Edit</title>
+        <section data-background="assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30"></section>
+            <div class="hero-caption">
+                <div class="hero-text">
+                    <div class="container">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <section class="module">
+            <div class="users-edit">
+              <div class="col-sm-6 col-sm-offset-3">
+                  <div class="module-header text-center">
+          <h1>Edit User Information</h1> <p class="divider-line"></p>
+          </div></div></div>
 
-    <div class="current">Hello, {{ user.first_name }}.</div>
-    <br />
-    <br />
-    <form v-on:submit.prevent="submit(user)">
-      <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul>
-      Edit first name:
-      <input type="text" v-model="user.first_name" />
-      <br />
-      Edit last name:
-      <input type="text" v-model="user.last_name" />
-      <br />
+          <form v-on:submit.prevent="submit(user)">
+            <ul>
+              <li class="text-danger" v-for="error in errors">{{ error }}</li>
+            </ul> 
+            <div class="col-sm-6 form-group">
+            Edit first name:
+            <input type="text" v-model="user.first_name" class="form-control">
+            <br />
+            Edit last name:
+            <input type="text" v-model="user.last_name" class="form-control">
+            <br />
 
-      Change Email:
-      <input type="text" v-model="user.email" />
-      <br />
-      Change Password:
-      <input type="text" v-model="user.password" />
-      <br />
-      <br />
+            Change Email:
+            <input type="text" v-model="user.email" class="form-control">
+            <br />
+            Change Password:
+            <input type="text" v-model="user.password" class="form-control">
+            <br />
+            <br />
 
-      <input type="submit" value="Submit" />
-    </form>
+            <input type="submit" value="Submit" class="btn btn-brand">
+          </form></div>
 
-    <button v-on:click="destroyUser(user)">Delete Account</button>
-  </div>
+          <button v-on:click="destroyUser(user)">Delete Account</button>
+         </div></div>
+        </section></head>
 </template>
 
 <script>
+
 import axios from "axios";
 export default {
   data: function() {
@@ -68,6 +86,6 @@ export default {
         this.$router.push("/signup");
       });
     }
-  }
+  } 
 };
 </script>

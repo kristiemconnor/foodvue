@@ -1,6 +1,6 @@
 <template>
   <section class="module divider">
-  <div class="users-ingredients">
+    <div class="users-ingredients">
     <h4>{{ user.first_name }}'s Pantry</h4>
         <h4>Ingredients on hand: {{ user.ingredients.length }}</h4>
       <br>
@@ -12,7 +12,7 @@
         <button v-on:click="addIngredient" class="btn-sm">Add</button>
         <br>
       <div class="sort">
-        <h5>Search ingredients by name: <input type="text" v-model="titleFilter" list="names">
+        <h5>Search ingredients by name: <input type="text" v-model="nameFilter" list="names">
           <datalist id="names">
             <option v-for="ingredient in ingredients">{{ ingredient.name }}</option>
           </datalist></h5>
@@ -32,7 +32,7 @@
             <br>
       </li>
   </div>
-</section>
+  </section>
 </template>
 
 <style>

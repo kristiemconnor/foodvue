@@ -1,20 +1,25 @@
 <template>
-  <div class="recipe-index">
-    <h4>Recipes containing your selected ingredients</h4>
-    <br>
-    <div v-for="recipe in recipes">
-<img v-bind:src="recipe.thumbnail" alt ="recipe image">
-      <br>
-      {{ recipe.title }}
-      <h4>Contains {{ recipe.ingredients }}. </h4>
-      <a class="recipelink" target="_blank" v-bind:href="recipe.href">See more</a><br>
+  <section class="module-divider">
+    <head><title>Selected Recipes</title></head>
+    <body>
+    <div class="recipe-index">
+      <h4>Recipes containing your selected ingredients</h4>
+       <br>
+      <div v-for="recipe in recipes">
+        <img v-bind:src="recipe.thumbnail" alt ="recipe image">
+        <br>
+        {{ recipe.title }}
+        <h4>Contains {{ recipe.ingredients }}. </h4>
+        <a class="recipelink" target="_blank" v-bind:href="recipe.href">See more</a><br>
+      </div>
     </div>
-  </div>
+  </body>
+  </section>
 </template>
 <style>
   a:link {
     text-decoration: none;
-    color: green;  
+    color: gray;  
   }
 
   a:visited {

@@ -1,17 +1,19 @@
 <template>
-  <div class="recipe-show">
- <br>
+  <section class="module-divider">
+    <div class="recipe-show">
+  <br>
 <!-- image -->
-  <img v-bind:src="recipe.thumbnail" alt="recipe image">
-    <h4>Selected Recipe: {{ recipe.title }}</h4>
-      <h4>Contains {{ recipe.ingredients }} </h4>
-      <h5><a 
+   <h2 img v-bind:src="recipe.thumbnail" alt="recipe image"></h2>
+      <h4>Selected Recipe: {{ recipe.title }}</h4>
+       <h4>Contains {{ recipe.ingredients }} </h4>
+        <h5><a 
         class="instructions" 
         v-bind:href="recipe.href" >Follow this link for the recipe's instructions</a>
-        <a href="http://img.recipepuppy.com/10.jpg"></a>
+       <!--  <a href="http://img.recipepuppy.com/10.jpg"></a> -->
       </h5>
       
-  </div>
+    </div>
+  </section>
 </template>
 <style>
   a:link {
