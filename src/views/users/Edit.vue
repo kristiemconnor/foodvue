@@ -51,27 +51,6 @@
                 </div>
             </div>
             </div>
-   <!--            <div class="module-header text-center">
-              <ul>
-              <li class="text-danger" v-for="error in errors">{{ error }}</li>
-              </ul> 
-                <div class="col-sm-6 form-group">
-                  Edit first name:
-                                  <br />
-                  Edit last name:
-                  <input type="text" v-model="user.last_name" class="form-control">
-                  <br>
-                  Change Email:
-                  <input type="text" v-model="user.email" class="form-control">
-                  <br />
-                  Change Password:
-                 
-                  <br />
-                  <br />
-               
-                </div>
-              </div> -->
-
 </template>
 
 <script>
