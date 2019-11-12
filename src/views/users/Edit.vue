@@ -1,10 +1,8 @@
-<template> <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Edit</title>
-        <section data-background="assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30"></section>
+<template>
+  <div id="users-edit">
+    <div class="wrapper">
+        <!-- HERO-->
+        <section data-background="/assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30">
             <div class="hero-caption">
                 <div class="hero-text">
                     <div class="container">
@@ -13,43 +11,70 @@
                     </div>
                 </div>
             </div>
-          <section class="module">
-            <div class="users-edit">
+        </section>
+        <!-- END HERO-->
+        <!-- CONTACT-->
+        <section class="module"></section>
+            <div class="container">
               <div class="col-sm-6 col-sm-offset-3">
                   <div class="module-header text-center">
-          <h1>Edit User Information</h1> <p class="divider-line"></p>
-          </div></div></div>
-
-          <form v-on:submit.prevent="submit(user)">
-            <ul>
+                  <h1>Edit User</h1>
+                  </div>
+              </div>
+                    <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <form id="contact-form" method="post" novalidate></form>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">  <form v-on:submit.prevent="submit(user)"></form>
+                                    <input type="text" v-model="user.first_name" placeholder="First name" required="" class="form-control">
+                                   
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <input type="text" name="lastname" placeholder="Last name" required="" class="form-control">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <input type="email" name="email" placeholder="E-mail" required="" class="form-control">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-grou"> <input type="text" v-model="user.password" placeholder="Password" class="form-control"><p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-12 text-center">
+                                
+                                    <button v-on:click="submit(user)" class="btn btn-brand">Submit</button>  <button v-on:click="destroyUser(user)" class="btn btn-brand">Delete Account</button>
+                                  </div>
+                                </div>
+                            </div>                        <!-- Ajax response-->
+                        <div id="contact-response" class="ajax-response text-center"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+   <!--            <div class="module-header text-center">
+              <ul>
               <li class="text-danger" v-for="error in errors">{{ error }}</li>
-            </ul> 
-            <div class="col-sm-6 form-group">
-            Edit first name:
-            <input type="text" v-model="user.first_name" class="form-control">
-            <br />
-            Edit last name:
-            <input type="text" v-model="user.last_name" class="form-control">
-            <br />
+              </ul> 
+                <div class="col-sm-6 form-group">
+                  Edit first name:
+                                  <br />
+                  Edit last name:
+                  <input type="text" v-model="user.last_name" class="form-control">
+                  <br>
+                  Change Email:
+                  <input type="text" v-model="user.email" class="form-control">
+                  <br />
+                  Change Password:
+                 
+                  <br />
+                  <br />
+               
+                </div>
+              </div> -->
 
-            Change Email:
-            <input type="text" v-model="user.email" class="form-control">
-            <br />
-            Change Password:
-            <input type="text" v-model="user.password" class="form-control">
-            <br />
-            <br />
-
-            <input type="submit" value="Submit" class="btn btn-brand">
-          </form></div>
-
-          <button v-on:click="destroyUser(user)">Delete Account</button>
-         </div></div>
-        </section></head>
 </template>
 
 <script>
-
 import axios from "axios";
 export default {
   data: function() {
