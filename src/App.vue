@@ -4,54 +4,36 @@
     <header id="navigation" class="header">
         <div class="container">
             <!-- LOGO-->
-            <div class="inner-header"><a href="index.html" class="inner-brand"><img src="assets/images/logo-light.png" width="100" alt=""></a></div>
+            <div class="inner-header"><a href="/index.html" class="inner-brand"><img src="/assets/images/logo-light.png" width="100" alt=""></a></div>
             <!-- MENU-->
             <div class="inner-navigation collapse">
                 <div class="inner-navigation-inline">
                     <div class="inner-nav">
                         <ul>
-                            <li class="has-submenu"><a href="#">Home</a>
+                            <li class="has-submenu">  <router-link to="/">Home</router-link>
                                                            </li>
-                            <li class="has-submenu"><a href="#">Pages</a>
-                                                         </li>
-                            <li class="has-submenu"><a href="#">Shop</a>
-                                                        </li>
-                            <li class="has-submenu"><a href="#">Blog</a>
-                                                       </li>
-                            <li class="has-submenu"><a href="#">Shortcodes</a>
-                                                         </li>
-                            <li><a href="contact.html">Contact</a></li>
+ <li class="has-submenu"><router-link to="/about">About</router-link>
+                              </li>
+                              <li class="has-submenu">  <router-link v-if="isLoggedIn()" to="/users/me/profile">View Profile</router-link></li>
+                            <li>  <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link></li>
                         </ul>
                     </div>
                     <!-- EXTRA ICONS MENU-->
                     <div class="extra-nav text-right">
                         <ul>
-                            <li class="has-submenu submenu-left">     <router-link to="/login">Login</router-link>
+                            <li class="has-submenu submenu-left">     <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
                                                           </li>
-                            <li class="has-submenu submenu-left"> <router-link to="/signup">Create Account</router-link>
+                            <li class="has-submenu submenu-left"> <router-link v-if="!isLoggedIn()" to="/signup">Create Account</router-link>
                             </li>
                         </ul>
                     </div>
                     <!-- END EXTRA ICONS MENU-->
                 </div>
             </div>
-            <!-- SHOW MOBILE MENU-->
-            <div class="nav-toogle"><a href="#" data-toggle="collapse" data-target=".inner-navigation" class="fa fa-bars"></a></div>
         </div>
     </header>
-
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-      |
-           |
- 
-      |
-      <router-link to="/logout">Logout</router-link>
-      |
-      <router-link to="/users/me/profile">View Profile</router-link>
-    </div>
+ <div id="nav">
+<!-- old router links were here --></div>
     <div class="wrapper">
       <router-view />
 
@@ -69,8 +51,7 @@
                             <li><a href="#" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#" data-toggle="tooltip" data-original-title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" data-original-title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -82,4 +63,40 @@
 </template>
 
 <style>
+a:link {
+  text-decoration: none;
+  color: orange;  
+}
+
+a:visited {
+  text-decoration: none;
+  color: silver;
+}
+
+a:hover {
+  text-decoration: none;
+  color: orange;
+}
+
+a:active {
+  text-decoration: underline;
+}
 </style>
+<script>
+export default {
+  data: function() {
+    return {
+      user_id: localStorage.getItem("user_id")
+    };  
+  },
+  methods: {
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+};
+</script>

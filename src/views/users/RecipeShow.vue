@@ -16,12 +16,12 @@
 <style>
   a:link {
     text-decoration: none;
-    color: green;  
+    color: orange;  
   }
 
   a:visited {
     text-decoration: none;
-    color: black;
+    color: silver;
   }
 
   a:hover {
@@ -32,15 +32,7 @@
   a:active {
     text-decoration: underline;
   }
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
+ </style>
 <script>
 import axios from "axios";
 export default {

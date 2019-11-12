@@ -1,5 +1,7 @@
 <template>
   <div class="login">
+    <section class="module divider">
+    </section>
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <h1>Login</h1>
