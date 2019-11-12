@@ -43,7 +43,7 @@ export default {
       last_name: "",
       email: "",
       password: "",
-      passwordConfirmation: "",
+      password_Confirmation: "",
       errors: []
     };
   },
