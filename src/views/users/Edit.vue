@@ -2,7 +2,7 @@
   <div class="users-edit">
     <h1>Edit User Information</h1>
 
-    <div class="current">Hello, {{ user.first_name }} {{ user.last_name }}.</div>
+    <div class="current">Hello, {{ user.first_name }}.</div>
     <br />
     <br />
     <form v-on:submit.prevent="submit(user)">

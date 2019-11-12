@@ -17,7 +17,7 @@
     <li v-for="ingredient in orderBy(ingredients, 'expiration')">
       <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients">
       <label :for="ingredient.id">{{ ingredient.name }}</label>
-       | Expires {{ relativeExpiration(ingredient.expiration) }} 
+       : will expire {{ relativeExpiration(ingredient.expiration) }} 
         <h4>Edit Ingredient</h4>
           <h5>Name: <input type="text" v-model="ingredient.name">
           Expiration: <input type="date" v-model="ingredient.expiration">
@@ -109,13 +109,8 @@ export default {
       return moment(expiration).endOf('day').fromNow();
     },
     setSortAttribute: function(attribute) {
-      if (this.sortAttribute === attribute) {
-        this.sortAscending = this.sortAscending * -1;
-      } else {
-        this.sortAscending = 1;
-        this.sortAttribute = attribute;
-      }
-    }
-  },
+      this.sortAttribute === attribute;
+    },
+  }
 };
 </script>

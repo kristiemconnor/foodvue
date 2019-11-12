@@ -1,15 +1,15 @@
 <template>
     <div class="users-profile">
-        <br />
-        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-        <h3>{{ user.email }}</h3>
-        <br />
 
-        <router-link to="/users/me/edit">Edit User Info</router-link>
+        <section class="module divider">
+          <div class="container">
+             <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+             <h3>{{ user.email }}</h3>
+             <router-link to="/users/me/edit">Edit User Info</router-link>
         |
-        <router-link to="/ingredients/me">View Pantry</router-link>
-        <br />
-        <br />
+              <router-link to="/ingredients/me">View Pantry</router-link>
+          </div>
+        </section>
     </div>
 </template>
 <style></style>
