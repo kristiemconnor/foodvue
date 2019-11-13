@@ -13,7 +13,7 @@
     </section>
     <!-- END HERO-->
     <!-- CONTACT-->
-    <section class="module">
+    <section class="module" style="padding-top:15px">
       <div class="container">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="module-header text-center">
@@ -41,38 +41,14 @@
               </div>
               <div class="col-sm-12 text-center">
                 
-                <button v-on:click="submit(user)" class="btn btn-brand">Submit</button>  <button v-on:click="destroyUser(user)" class="btn btn-warning">Delete Account</button>
+                <button v-on:click="submit(user)" class="btn btn-brand">Submit</button> <div class="row" style="padding-bottom:15px"></div> <button v-on:click="destroyUser(user)" class="btn btn-warning">Delete Account</button>
               </div>
             </div>
-          </div>                        <!-- Ajax response-->
+          </div>                        
           <div id="contact-response" class="ajax-response text-center"></div>
         </div>
       </div>
     </section>
-
-
-
-
-   <!--            <div class="module-header text-center">
-              <ul>
-              <li class="text-danger" v-for="error in errors">{{ error }}</li>
-              </ul> 
-                <div class="col-sm-6 form-group">
-                  Edit first name:
-                                  <br />
-                  Edit last name:
-                  <input type="text" v-model="user.last_name" class="form-control">
-                  <br>
-                  Change Email:
-                  <input type="text" v-model="user.email" class="form-control">
-                  <br />
-                  Change Password:
-                 
-                  <br />
-                  <br />
-               
-                </div>
-              </div> -->
   </div>
 </template>
 

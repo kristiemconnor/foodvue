@@ -20,7 +20,7 @@
                 Expiration: 
                 <input type="date" v-model="newIngredientExpiration"><br>
 
-                <button v-on:click="addIngredient" class="btn btn-brand">Add</button>
+                <button v-on:click="addIngredient" class="btn btn-brand" style="padding-top:10px">Add</button>
               </p>
             </div>
             <!-- END FEATURE-->

@@ -1,15 +1,14 @@
 <template>
   <div class="login">
-    <!-- HERO-->
-    <section data-background="assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30">
-        <div class="hero-caption">
-            <div class="hero-text">
-                <div class="container">
-                    <div class="row">
-                    </div>
-                </div>
+    <section class="module-hero color-white parallax bg-black-alfa-30 bg-module-4" style="padding-top:5px">
+      <div class="hero-caption">
+        <div class="hero-text">
+          <div class="container">
+            <div class="row">
             </div>
+          </div>
         </div>
+      </div>
     </section>
     <!-- END HERO-->
     <section class="module">
@@ -19,7 +18,7 @@
           <ul>
             <li class="text-danger" v-for="error in errors">{{ error }}</li>
           </ul>
-          <div class="form-group">
+          <div class="form-group" style="padding-top:1px">
             <label>Email:</label>
             <input type="email" class="form-control" v-model="email" />
           </div>
