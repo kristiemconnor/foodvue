@@ -1,7 +1,21 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <p>This app was designed to help you discover new recipes!</p>
+    <section data-background="assets/images/module-10.jpg" class="module-hero color-white parallax fullheight bg-black-alfa-30">
+      <div class="hero-caption">
+        <div class="hero-text">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 text-centeR">
+                <div class="module-header text-center">
+                  <h2 class="m-0">About</h2>
+                  <p class="divider-line"> This app was designed to help you discover new recipes!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 <style>
