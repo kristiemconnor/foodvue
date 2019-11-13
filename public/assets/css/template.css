@@ -2794,3 +2794,15 @@ span.box1 {
         text-align: center;
     }
 }
+
+.bg-mod-10 {
+  background-image: url("/assets/images/module-10.jpg");
+}
+
+.bg-contact {
+  background-image: url("/assets/images/contact.jpg");
+}
+
+.bg-module-3 {
+  background-image: url("/assets/images/module-3.jpg");
+}

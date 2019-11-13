@@ -1,7 +1,7 @@
 <template>
   <div id="users-edit">
     <!-- HERO-->
-    <section data-background="/assets/images/module-3.jpg" class="module-hero color-white parallax bg-black-alfa-30">
+    <section class="module-hero color-white parallax bg-black-alfa-30 bg-module-3">
       <div class="hero-caption">
         <div class="hero-text">
           <div class="container">

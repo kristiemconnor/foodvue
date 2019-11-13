@@ -17,7 +17,6 @@
                       <td>
                         <a class="btn btn-brand" target="_blank" v-bind:href="recipe.href">See more</a>
                       </td>
-
                     </tr>
                   </tbody>
                 </table>
@@ -52,6 +51,7 @@
   .brown-font {
     color: #c78f53;
   }
+  
 </style>
 <script>
 import axios from "axios";

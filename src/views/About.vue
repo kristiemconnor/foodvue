@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <section data-background="assets/images/module-10.jpg" class="module-hero color-white parallax fullheight bg-black-alfa-30">
+    <section class="module-hero color-white parallax fullheight bg-black-alfa-30 bg-mod-10">
       <div class="hero-caption">
         <div class="hero-text">
           <div class="container">

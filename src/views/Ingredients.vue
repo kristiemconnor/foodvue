@@ -1,44 +1,108 @@
 <template>
-  <section class="module divider">
-    <div class="users-ingredients">
-    <h4>{{ user.first_name }}'s Pantry</h4>
-        <h4>Ingredients on hand: {{ user.ingredients.length }}</h4>
-      <br>
-        <p><h5>Select up to three ingredients, then click "find recipe" to search our recipe database.</h5> 
-        </p>
-      <h4>Add an ingredient</h4>
-        Name: <input type="text" v-model="newIngredientName"><br>
-        Expiration: <input type="date" v-model="newIngredientExpiration"><br>
-        <button v-on:click="addIngredient" class="btn-sm">Add</button>
-        <br>
-      <div class="sort">
-        <h5>Search ingredients by name: <input type="text" v-model="nameFilter" list="names">
-          <datalist id="names">
-            <option v-for="ingredient in ingredients">{{ ingredient.name }}</option>
-          </datalist></h5>
-        <button v-on:click="setSortAttribute('name')" class="btn-sm"> Sort Alphabetically</button>
-        <button v-on:click="setSortAttribute('expiration')" class="btn-sm"> Sort by Expiration</button>
+  <div class="users-ingredients">
+    <section id="about" class="module" style="padding-bottom:15px">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="module-header text-center">
+              <h1>Your Ingredients</h1>
+              <p class="divider-line">Select up to three ingredients, then click "find recipe" to search our recipe database.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 wow fadeInUp">
+            <!-- FEATURE-->
+            <div class="feature">
+              <h4 class="feature-title">Add Ingredient</h4>
+              <p>Name: 
+                <input type="text" v-model="newIngredientName"><br>
+                Expiration: 
+                <input type="date" v-model="newIngredientExpiration"><br>
+
+                <button v-on:click="addIngredient" class="btn btn-brand">Add</button>
+              </p>
+            </div>
+            <!-- END FEATURE-->
+          </div>
+          <div data-wow-delay="0.2s" class="col-sm-4 wow fadeInUp">
+            <!-- FEATURE-->
+            <div class="feature">
+              
+              <h4 class="feature-title">Search Ingredients</h4>
+              <p><input type="text" v-model="nameFilter" list="names" placeholder="name"></p>
+            </div>
+            <!-- END FEATURE-->
+          </div>
+          <div data-wow-delay="0.4s" class="col-sm-4 wow fadeInUp">
+            <!-- FEATURE-->
+            <div class="feature">
+              
+              <h4 class="feature-title">Sort Ingredients</h4>
+              <p><button v-on:click="setSortAttribute('name')" class="btn btn-brand">Alphabetically</button> <div class="row"></div> <button v-on:click="setSortAttribute('expiration')" class="btn btn-brand">By Expiration</button></p>
+            </div>
+            <!-- END FEATURE-->
+          </div>
+        </div>
       </div>
-    <button v-on:click="findRecipes()" class="btn-sm">Find Recipes</button>
-    <li v-for="ingredient in orderBy(filterBy(ingredients, nameFilter, 'name'), sortAttribute)">
-      <input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients">
-      <label :for="ingredient.id">{{ ingredient.name }}</label>
-       : will expire {{ relativeExpiration(ingredient.expiration) }} 
-        <h4>Edit Ingredient</h4>
-          <h5>Name: <input type="text" v-model="ingredient.name">
-          Expiration: <input type="date" v-model="ingredient.expiration"></h5>
-          <button v-on:click="updateIngredient(ingredient)" class="btn-sm">Edit</button>
-          <button v-on:click="destroyIngredient(ingredient)" class="btn-sm">Delete</button>
-            <br>
-      </li>
+    </section>
+
+    <section class="module divider-bottom" style="padding-top: 15px">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h6>Ingredients on hand: {{ ingredients.length}}</h6>
+            <form method="post"> 
+              <div class="table-responsive">
+                <table class="table cart-table">
+
+                  <tbody>
+                    <tr v-for="ingredient in orderBy(filterBy(ingredients, nameFilter, 'name'), sortAttribute)">
+                      <td><input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients"></td>
+                      <td>
+                     
+                      <td>
+                        <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires in {{ relativeExpiration(ingredient.expiration) }}</span>
+                      </td>
+                      <td>
+                        <input type="text" v-model="ingredient.name">
+                      </td>
+                      <td>
+                        <input type="date" v-model="ingredient.expiration">
+
+                      </td>
+                      <td>
+                        <button v-on:click="updateIngredient(ingredient)" class="btn btn-brand">Edit</button>
+                      </td>
+                      <td>
+                        <button v-on:click="destroyIngredient(ingredient)" class="btn btn-brand">Delete</button>
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <button v-on:click="findRecipes()" class="btn btn-brand">Find Recipes</button>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    
   </div>
-  </section>
 </template>
 
 <style>
-/*  div {
-    justify-content: center;
-  }  */
+.justify {
+  align-items: center;
+}
 </style>
 
 <script>

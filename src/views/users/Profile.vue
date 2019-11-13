@@ -1,7 +1,7 @@
 <template>
     <div class="users-profile">
 
-      <section data-background="/assets/images/contact.jpg" class="module-hero color-white parallax bg-black-alfa-30">
+      <section class="module-hero color-white parallax bg-black-alfa-30 bg-contact">
             <div class="hero-caption">
                 <div class="hero-text">
                     <div class="container">
@@ -16,9 +16,7 @@
           <div class="container">
              <h3>{{ user.first_name }} {{ user.last_name }}</h3>
              <h3>{{ user.email }}</h3>
-             <router-link to="/users/me/edit">Edit User Info</router-link>
-        |
-              <router-link to="/ingredients/me">View Pantry</router-link>
+             <h4><router-link to="/users/me/edit">Edit User Info</router-link> | <router-link to="/ingredients/me">View Pantry</router-link></h4>
           </div>
         </section>
     </div>
