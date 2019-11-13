@@ -1,6 +1,17 @@
 <template>
     <div class="users-profile">
 
+      <section data-background="/assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30">
+            <div class="hero-caption">
+                <div class="hero-text">
+                    <div class="container">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="module divider">
           <div class="container">
              <h3>{{ user.first_name }} {{ user.last_name }}</h3>

@@ -1,35 +1,53 @@
 <template>
   <div class="signup">
-    <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <h1>Create an account</h1>
-        <br />
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>First name:</label>
-          <input type="text" class="form-control" v-model="first_name" />
+
+    <section class="module">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="module-header text-center">
+              <h1>Register</h1>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Last name:</label>
-          <input type="text" class="form-control" v-model="last_name" />
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <form id="contact-form" v-on:submit.prevent="submit()">
+              <ul>
+                <li class="text-danger" v-for="error in errors">{{ error }}</li>
+              </ul>
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <input type="text" v-model="first_name" placeholder="First Name" required="" class="form-control">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <input type="text" v-model="last_name" placeholder="Last Name" required="" class="form-control">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-sm-12 form-group">
+                  <input type="email" v-model="email" placeholder="E-mail" required="" class="form-control">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-sm-12 form-group">
+                  <input type="password" v-model="password" placeholder="Password" required="" class="form-control">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-sm-12 form-group">
+                  <input type="password" v-model="passwordConfirmation" placeholder="Password confirmation" required="" class="form-control">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-sm-12 text-center">
+                  <button type="submit" class="btn btn-brand">Submit</button>
+                </div>
+              </div>
+            </form>
+            <!-- Ajax response-->
+            <div id="contact-response" class="ajax-response text-center"></div>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Email:</label>
-          <input type="email" class="form-control" v-model="email" />
-        </div>
-        <div class="form-group">
-          <label>Password:</label>
-          <input type="password" class="form-control" v-model="password" />
-        </div>
-        <div class="form-group">
-          <label>Password confirmation:</label>
-          <input type="password" class="form-control" v-model="passwordConfirmation" />
-        </div>
-        <input type="submit" class="btn btn-primary" value="Submit" />
-      </form>
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -43,7 +61,7 @@ export default {
       last_name: "",
       email: "",
       password: "",
-      password_Confirmation: "",
+      passwordConfirmation: "",
       errors: []
     };
   },

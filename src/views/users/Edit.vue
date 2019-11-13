@@ -1,56 +1,58 @@
 <template>
   <div id="users-edit">
-    <div class="wrapper">
-        <!-- HERO-->
-        <section data-background="/assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30">
-            <div class="hero-caption">
-                <div class="hero-text">
-                    <div class="container">
-                        <div class="row">
-                        </div>
-                    </div>
-                </div>
+    <!-- HERO-->
+    <section data-background="/assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30">
+      <div class="hero-caption">
+        <div class="hero-text">
+          <div class="container">
+            <div class="row">
             </div>
-        </section>
-        <!-- END HERO-->
-        <!-- CONTACT-->
-        <section class="module"></section>
-            <div class="container">
-              <div class="col-sm-6 col-sm-offset-3">
-                  <div class="module-header text-center">
-                  <h1>Edit User</h1>
-                  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END HERO-->
+    <!-- CONTACT-->
+    <section class="module">
+      <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="module-header text-center">
+            <h1>Edit User</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <form id="contact-form" method="post" novalidate></form>
+            <div class="row">
+              <div class="col-sm-6 form-group">  <form v-on:submit.prevent="submit(user)"></form>
+                <input type="text" v-model="user.first_name" placeholder="First name" required="" class="form-control">
+                
+                <p class="help-block text-danger"></p>
               </div>
-                    <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <form id="contact-form" method="post" novalidate></form>
-                            <div class="row">
-                                <div class="col-sm-6 form-group">  <form v-on:submit.prevent="submit(user)"></form>
-                                    <input type="text" v-model="user.first_name" placeholder="First name" required="" class="form-control">
-                                   
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-6 form-group">
-                                    <input type="text" name="lastname" placeholder="Last name" required="" class="form-control">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-6 form-group">
-                                    <input type="email" name="email" placeholder="E-mail" required="" class="form-control">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-6 form-grou"> <input type="text" v-model="user.password" placeholder="Password" class="form-control"><p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-12 text-center">
-                                
-                                    <button v-on:click="submit(user)" class="btn btn-brand">Submit</button>  <button v-on:click="destroyUser(user)" class="btn btn-brand">Delete Account</button>
-                                  </div>
-                                </div>
-                            </div>                        <!-- Ajax response-->
-                        <div id="contact-response" class="ajax-response text-center"></div>
-                    </div>
-                </div>
+              <div class="col-sm-6 form-group">
+                <input type="text" v-model="user.last_name" placeholder="Last name" required="" class="form-control">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input type="email" v-model="user.email" placeholder="E-mail" required="" class="form-control">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="col-sm-6 form-grou"> <input type="text" v-model="user.password" placeholder="Password" class="form-control"><p class="help-block text-danger"></p>
+              </div>
+              <div class="col-sm-12 text-center">
+                
+                <button v-on:click="submit(user)" class="btn btn-brand">Submit</button>  <button v-on:click="destroyUser(user)" class="btn btn-warning">Delete Account</button>
+              </div>
             </div>
-            </div>
+          </div>                        <!-- Ajax response-->
+          <div id="contact-response" class="ajax-response text-center"></div>
+        </div>
+      </div>
+    </section>
+
+
+
+
    <!--            <div class="module-header text-center">
               <ul>
               <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -71,7 +73,7 @@
                
                 </div>
               </div> -->
-
+  </div>
 </template>
 
 <script>

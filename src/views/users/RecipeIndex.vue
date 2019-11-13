@@ -1,20 +1,34 @@
 <template>
-  <section class="module-divider">
-    <head><title>Selected Recipes</title></head>
-    <body>
-    <div class="recipe-index">
-      <h4>Recipes containing your selected ingredients</h4>
-       <br>
-      <div v-for="recipe in recipes">
-        <img v-bind:src="recipe.thumbnail" alt ="recipe image">
-        <br>
-        {{ recipe.title }}
-        <h4>Contains {{ recipe.ingredients }}. </h4>
-        <a class="recipelink" target="_blank" v-bind:href="recipe.href">See more</a><br>
+  <div class="recipe-index">
+
+    <section class="module divider-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <form method="post">
+              <div class="table-responsive">
+                <table class="table cart-table">
+                  <tbody>
+                    <tr v-for="recipe in recipes">
+                      <td><img v-if="recipe.thumbnail" v-bind:src="recipe.thumbnail" :alt="recipe.title" class="cart-thumbnail"/></td>
+                      <td>
+                        <h6 class="m-b-5 brown-font">{{ recipe.title }}</h6><span class="text-xs">Contains {{ recipe.ingredients }}</span>
+                      </td>
+                      <td>
+                        <a class="btn btn-brand" target="_blank" v-bind:href="recipe.href">See more</a>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </body>
-  </section>
+    </section>
+
+  </div>
 </template>
 <style>
   a:link {
@@ -35,13 +49,8 @@
   a:active {
     text-decoration: underline;
   }
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  .brown-font {
+    color: #c78f53;
   }
 </style>
 <script>

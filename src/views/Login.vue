@@ -1,24 +1,36 @@
 <template>
   <div class="login">
-    <section class="module divider">
+    <!-- HERO-->
+    <section data-background="/assets/images/module-9.jpg" class="module-hero color-white parallax bg-black-alfa-30">
+        <div class="hero-caption">
+            <div class="hero-text">
+                <div class="container">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <h1>Login</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>Email:</label>
-          <input type="email" class="form-control" v-model="email" />
-        </div>
-        <div class="form-group">
-          <label>Password:</label>
-          <input type="password" class="form-control" v-model="password" />
-        </div>
-        <input type="submit" class="btn btn-brand" value="Submit" />
-      </form>
-    </div>
+    <!-- END HERO-->
+    <section class="module">
+      <div class="container">
+        <form v-on:submit.prevent="submit()">
+          <h1>Login</h1>
+          <ul>
+            <li class="text-danger" v-for="error in errors">{{ error }}</li>
+          </ul>
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="email" class="form-control" v-model="email" />
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" v-model="password" />
+          </div>
+          <input type="submit" class="btn btn-brand" value="Submit" />
+        </form>
+      </div>
+    </section>
   </div>
 </template>
 <script>
