@@ -1,38 +1,50 @@
 <template>
   <div class="signup">
-    <section class="module-hero color-white parallax bg-black-alfa bg-module-7" style="padding-bottom:4px">
-    </section>
-    <div class="hero-caption"></div>
-    <section class="module" style="padding:15px"></section>
-    <form id="contact-form" v-on:submit.prevent="submit()" style="padding-top:10px">
-      <div class="welcome text-center"><h2>Create account</h2>  
-        <div class="col-sm-8 col-sm-offset-2" style="padding:5px">
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-          <div class="row"></div>
-          <div class="col-sm-6 form-group">
-            <input type="text" v-model="first_name" placeholder="First name" required="" class="form-control">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="col-sm-6 form-group">
-            <input type="text" v-model="last_name" placeholder="Last name" required="" class="form-control">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="col-sm-12 form-group">
-            <input type="email" v-model="email" placeholder="E-mail" required="" class="form-control">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="col-sm-12 form-group">
-            <input type="password" v-model="password" placeholder="Password" required="" class="form-control">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="col-sm-12 form-group">
-            <input type="password" v-model="passwordConfirmation" placeholder="Password confirmation" required="" class="form-control">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="col-sm-12 text-center" style="padding-bottom:10px">
-            <button type="submit" class="btn btn-brand">Submit</button>
+    <section class="module-hero color-white parallax bg-black-alfa bg-mod-za" style="padding-bottom:5px">
+      <div class="hero-caption">
+        <div class="hero-text">
+          <div class="container">
+            <div class="row">
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+    <section class="module" style="padding:10px">
+      <div class="container">
+      <form id="contact-form" v-on:submit.prevent="submit()">
+        <div class="text-center">
+          <h2>Create account</h2>  
+          <div class="col-sm-8 col-sm-offset-2" style="padding:5px">
+            <ul class="text-danger" v-for="error in errors">{{ error }}
+            </ul>
+            <div class="row"></div>
+            <div class="col-sm-6 form-group">
+              <input type="text" v-model="first_name" placeholder="First name" required="" class="form-control">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="col-sm-6 form-group">
+              <input type="text" v-model="last_name" placeholder="Last name" required="" class="form-control">
+              <p class="help-block text-danger text-center"></p>
+            </div>
+            <div class="col-sm-12 form-group">
+              <input type="email" v-model="email" placeholder="E-mail" required="" class="form-control">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="col-sm-12 form-group">
+              <input type="password" v-model="password" placeholder="Password" required="" class="form-control">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="col-sm-12 form-group">
+              <input type="password" v-model="passwordConfirmation" placeholder="Password confirmation" required="" class="form-control">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="col-sm-12 text-center" style="padding-bottom:10px">
+              <button type="submit" class="btn btn-brand">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
       </div>
     </form>
 

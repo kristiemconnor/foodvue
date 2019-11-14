@@ -2795,7 +2795,7 @@ span.box1 {
     }
 }
 
-.bg-mod-10 {
+.bg-mod-bread {
   background-image: url("/assets/images/module-10.jpg");
 }
 
@@ -2817,4 +2817,12 @@ span.box1 {
 
 .bg-mod-2 {
   background-image: url("/assets/images/blog/2.jpg");
+}
+
+.bg-mod-croiss {
+  background-image: url("/assets/images/module-9.jpg");
+}
+
+.bg-mod-za {
+  background-image: url("/assets/images/blog/4.jpg");
 }

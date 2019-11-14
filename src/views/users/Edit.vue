@@ -41,7 +41,7 @@
               </div>
               <div class="col-sm-12 text-center">
                 
-                <button v-on:click="submit(user)" class="btn btn-brand">Submit</button> <div class="row" style="padding-bottom:15px"></div> <button v-on:click="destroyUser(user)" class="btn btn-warning">Delete Account</button>
+                <button v-on:click="submit(user)" class="btn btn-brand">Submit</button> <div class="row" style="padding-bottom:15px"></div> <button v-on:click="destroyUser(user)" class="btn btn-warning"><i class="icon_trash"></i> Delete Account <i class="icon_trash"></i></button>
               </div>
             </div>
           </div>                        

@@ -1,98 +1,112 @@
 <template>
   <div class="users-ingredients">
-    <section class="module-hero color-white parallax bg-black-alfa-30 bg-module-1">
-      <div class="hero-caption">
-        <div class="hero-text">
-          <div class="container">
-            <div class="row">
+    <section id="about" class="module" style="padding-bottom:15px">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="module-header text-center">
+              <h1>Your Ingredients</h1>
+              <p class="divider-line">Select up to three ingredients, then click "find recipe" to search our recipe database.</p>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 wow fadeInUp">
+            <!-- FEATURE-->
+            <div class="feature">
+              <h4 class="feature-title">Add Ingredient</h4>
+              <p>
+                <input type="text" v-model="newIngredientName" placeholder="Name"><div class="row"></div>
+                <input type="date" v-model="newIngredientExpiration"><br>
+                <div class="row" style="padding-bottom:5px"></div>
+                <button v-on:click="addIngredient" class="btn btn-brand" style="padding-top:10px">Add</button>
+              </p>
+            </div>
+            <!-- END FEATURE-->
+          </div>
+          <div data-wow-delay="0.2s" class="col-sm-4 wow fadeInUp">
+            <!-- FEATURE-->
+            <div class="feature">
+              
+              <h4 class="feature-title">Search Ingredients</h4>
+              <p><input type="text" v-model="nameFilter" list="names" placeholder="By name"></p>
+            </div>
+            <!-- END FEATURE-->
+          </div>
+          <div data-wow-delay="0.4s" class="col-sm-4 wow fadeInUp">
+            <!-- FEATURE-->
+            <div class="feature">
+              
+              <h4 class="feature-title">Sort Ingredients</h4>
+              <p><button v-on:click="setSortAttribute('name')" class="btn btn-brand">Alphabetically <i class="arrow_down"></i></button> <div class="row"></div> <button v-on:click="setSortAttribute('expiration')" class="btn btn-brand">By Expiration <i class="arrow_down"></i></button></p>
+            </div>
+            <!-- END FEATURE-->
           </div>
         </div>
       </div>
     </section>
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="module-header text-center">
-        <h2>Your Ingredients</h2>
-        <p class="divider-line">Select up to three ingredients, then click "find recipe" to search our recipe database.</p>
-      </div>
-    </div>
-    <div class="row"> 
-    </div>
-    <div data-wow-delay="0.2s" class="col-sm-4 wow fadeInUp">
-      <h4 class="feature-title">Add Ingredient</h4>
-      <p> 
-        <input type="text" v-model="newIngredientName" placeholder="Name"><div class="row"></div>
-        <input type="date" v-model="newIngredientExpiration" placeholder="Expiration"> 
-        <div class="row" style="padding-top:15px"></div>
-        <button v-on:click="addIngredient" class="btn btn-brand">Add</button>
-      </p>
-    </div>
-  </div>
-  <div data-wow-delay="0.2s" class="col-sm-4 wow fadeInUp">
-    <div class="feature">
-      <h4 class="feature-title">Search Ingredients</h4>
-      <p><input type="text" v-model="nameFilter" list="names" placeholder="Start typing..."></p>
-    </div>    
-  </div>
-  <div data-wow-delay="0.2s" class="col-sm-4 wow fadeInUp">
-    <div class="feature">
-      <h4 class="feature-title">Sort Ingredients</h4>
-      <p><button v-on:click="setSortAttribute('name')" class="btn btn-brand">Alphabetically <i class="arrow_down"></i></button>
-      <div class="row"></div> 
-      <button v-on:click="setSortAttribute('expiration')" class="btn btn-brand">By Expiration <i class="arrow_down"></i></button>
-      </p>
-    </div>     
-  </div>
-  <section class="module divider-bottom" style="padding-top:5px">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h6>Ingredients on hand: {{ ingredients.length}}</h6>
-          <form method="post"> 
-            <div class="table-responsive">
-              <table class="table cart-table">
-                <tbody>
-                  <tr v-for="ingredient in orderBy(filterBy(ingredients, nameFilter, 'name'), sortAttribute)">
-                    <td><input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients"></td>
-                    <td>
-                      <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires {{ relativeExpiration(ingredient.expiration) }}</span>
-                    </td>
-                    <td>
-                      <input type="text" v-model="ingredient.name">
-                    </td>
-                    <td>
-                      <input type="date" v-model="ingredient.expiration">
-                    </td>
-                    <td>
-                      <button v-on:click="updateIngredient(ingredient)" class="btn btn-brand btn-sm">Edit</button>
-                    </td>
-                    <td>
-                      <button v-on:click="destroyIngredient(ingredient)" class="btn btn-brand btn-sm">Delete <i class="icon_trash"></i></button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </form>
+
+    <section class="module divider-bottom" style="padding-top: 15px">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h6>Ingredients on hand: {{ ingredients.length }}</h6>
+            <form method="post"> 
+              <div class="table-responsive">
+                <table class="table cart-table">
+
+                  <tbody>
+                    <tr v-for="ingredient in orderBy(filterBy(ingredients, nameFilter, 'name'), sortAttribute)">
+                      <td><input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients"></td>
+                      <td>
+                     
+                      <td>
+                        <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires in {{ relativeExpiration(ingredient.expiration) }}</span>
+                      </td>
+                      <td>
+                        <input type="text" v-model="ingredient.name">
+                      </td>
+                      <td>
+                        <input type="date" v-model="ingredient.expiration">
+
+                      </td>
+                      <td>
+                        <button v-on:click="updateIngredient(ingredient)" class="btn btn-brand">Edit</button>
+                      </td>
+                      <td>
+                        <button v-on:click="destroyIngredient(ingredient)" class="btn btn-brand">Delete <i class="icon_trash"></i></button>
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+              
+            </form>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <button v-on:click="findRecipes()" class="btn btn-brand">Find Recipes</button>
+          </div>
+        </div>
+        
       </div>
-    </div>
-  </section>
-  <div class="row">
-    <div class="col-xs-12 text-center">
-      <button v-on:click="findRecipes()" class="btn btn-brand">Find Recipes</button>
-    </div>
-  </div> 
-</div>
+    </section>
+
+    
+  </div>
 </template>
 
 <style>
+.justify {
+  align-items: center;
+}
 </style>
 
 <script>
 import axios from "axios";
 import Vue2Filters from "vue2-filters";
-
 export default {
   mixins: [Vue2Filters.mixin],
   data: function() {
@@ -116,7 +130,6 @@ export default {
       console.log(this.ingredients);
     });
   },
-
   methods: {
     addIngredient: function() {
       var params = {
@@ -155,7 +168,6 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
           console.log(error.response.data.errors);
-
         });
     },
     findRecipes: function() {
