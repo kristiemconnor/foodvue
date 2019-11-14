@@ -61,7 +61,7 @@
                       <td>
                      
                       <td>
-                        <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires in {{ relativeExpiration(ingredient.expiration) }}</span>
+                        <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires {{ relativeExpiration(ingredient.expiration) }}</span>
                       </td>
                       <td>
                         <input type="text" v-model="ingredient.name">
@@ -71,10 +71,10 @@
 
                       </td>
                       <td>
-                        <button v-on:click="updateIngredient(ingredient)" class="btn btn-brand">Edit</button>
+                        <button v-on:click="updateIngredient(ingredient)" class="btn btn-sm btn-brand">Edit</button>
                       </td>
                       <td>
-                        <button v-on:click="destroyIngredient(ingredient)" class="btn btn-brand">Delete <i class="icon_trash"></i></button>
+                        <button v-on:click="destroyIngredient(ingredient)" class="btn btn-sm btn-brand">Delete <i class="icon_trash"></i></button>
                       </td>
                     </tr>
                     
@@ -154,6 +154,7 @@ export default {
       };
       axios.patch("/api/ingredients/" + ingredient.id, params).then(response => {
         this.ingredient = {};
+        this.$router.push("/ingredients/me");
       })
         .catch(error => {
           this.errors = error.response.data.errors;

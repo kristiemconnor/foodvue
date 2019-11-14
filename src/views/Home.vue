@@ -8,7 +8,7 @@
               <div class="col-sm-12 text-center">
                 <div class="module-header text-center">
                   <h1 class="m-0">Welcome</h1>
-                  <h3 class="divider-line"> <router-link to="/signup">Click here </router-link>to log your ingredients and search our recipe database.</h3>
+                  <h3 class="divider-line"> <router-link to="/signup">Click here </router-link>to create an account. Log your ingredients and search our recipe database!</h3>
                 </div>
               </div>
             </div>
