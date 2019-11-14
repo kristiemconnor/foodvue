@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <section class="module-hero color-white parallax bg-black-alfa-30 bg-module-4" style="padding-top:5px">
+    <section class="module-hero color-white parallax bg-black-alfa-30 bg-contact" style="padding-top:5px">
       <div class="hero-caption">
         <div class="hero-text">
           <div class="container">
@@ -11,7 +11,7 @@
       </div>
     </section>
     <!-- END HERO-->
-    <section class="module">
+    <section class="module" style="padding-top:10px">
       <div class="container">
         <form v-on:submit.prevent="submit()">
           <h1>Login</h1>

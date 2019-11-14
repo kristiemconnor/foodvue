@@ -37,8 +37,8 @@
 <!-- old router links were here --></div>
     <div class="wrapper">
       <router-view />
-      <footer class="footer-bottom">
-        <div class="container-fluid">
+      <footer class="footer-bottom" style="padding:5">
+        <div class="container">
           <div class="col-md-6">
             <div class="widget">
               <p>© 2016 <a href="https://wrapbootstrap.com/user/web-master72" title="Risotto">Risotto</a>. All rights reserved. Designed by 2the.me.</p>

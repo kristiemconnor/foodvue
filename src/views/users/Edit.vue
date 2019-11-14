@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-8 col-sm-offset-2">
+          <div class="col-sm-8 col-sm-offset-2" style="padding-top:15px">
             <form id="contact-form" method="post" novalidate></form>
             <div class="row">
               <div class="col-sm-6 form-group">  <form v-on:submit.prevent="submit(user)"></form>

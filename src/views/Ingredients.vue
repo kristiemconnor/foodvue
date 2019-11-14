@@ -1,11 +1,11 @@
 <template>
   <div class="users-ingredients">
-    <section id="about" class="module" style="padding-bottom:15px">
+    <section class="module" style="padding-bottom:5px">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3">
             <div class="module-header text-center">
-              <h1>Your Ingredients</h1>
+              <h2>Your Ingredients</h2>
               <p class="divider-line">Select up to three ingredients, then click "find recipe" to search our recipe database.</p>
             </div>
           </div>
@@ -15,12 +15,11 @@
             <!-- FEATURE-->
             <div class="feature">
               <h4 class="feature-title">Add Ingredient</h4>
-              <p>Name: 
-                <input type="text" v-model="newIngredientName"><br>
-                Expiration: 
-                <input type="date" v-model="newIngredientExpiration"><br>
-
-                <button v-on:click="addIngredient" class="btn btn-brand" style="padding-top:10px">Add</button>
+              <p> 
+                <input type="text" v-model="newIngredientName" placeholder="Name"><div class="row"></div>
+                <input type="date" v-model="newIngredientExpiration" placeholder="Expiration"> 
+                <div class="row" style="padding-top:15px"></div>
+                <button v-on:click="addIngredient" class="btn btn-brand">Add</button>
               </p>
             </div>
             <!-- END FEATURE-->
@@ -30,7 +29,7 @@
             <div class="feature">
               
               <h4 class="feature-title">Search Ingredients</h4>
-              <p><input type="text" v-model="nameFilter" list="names" placeholder="name"></p>
+              <p><input type="text" v-model="nameFilter" list="names" placeholder="Start typing..."></p>
             </div>
             <!-- END FEATURE-->
           </div>
@@ -39,7 +38,7 @@
             <div class="feature">
               
               <h4 class="feature-title">Sort Ingredients</h4>
-              <p><button v-on:click="setSortAttribute('name')" class="btn btn-brand">Alphabetically</button> <div class="row"></div> <button v-on:click="setSortAttribute('expiration')" class="btn btn-brand">By Expiration</button></p>
+              <p><button v-on:click="setSortAttribute('name')" class="btn btn-brand">Alphabetically <i class="arrow_down"></i></button> <div class="row"></div> <button v-on:click="setSortAttribute('expiration')" class="btn btn-brand">By Expiration <i class="arrow_down"></i></button></p>
             </div>
             <!-- END FEATURE-->
           </div>
@@ -47,7 +46,7 @@
       </div>
     </section>
 
-    <section class="module divider-bottom" style="padding-top: 15px">
+    <section class="module divider-bottom" style="padding-top:5px">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -62,7 +61,7 @@
                       <td>
                      
                       <td>
-                        <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires in {{ relativeExpiration(ingredient.expiration) }}</span>
+                        <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires {{ relativeExpiration(ingredient.expiration) }}</span>
                       </td>
                       <td>
                         <input type="text" v-model="ingredient.name">
@@ -72,10 +71,10 @@
 
                       </td>
                       <td>
-                        <button v-on:click="updateIngredient(ingredient)" class="btn btn-brand">Edit</button>
+                        <button v-on:click="updateIngredient(ingredient)" class="btn btn-brand btn-sm">Edit</button>
                       </td>
                       <td>
-                        <button v-on:click="destroyIngredient(ingredient)" class="btn btn-brand">Delete</button>
+                        <button v-on:click="destroyIngredient(ingredient)" class="btn btn-brand btn-sm">Delete <i class="icon_trash"></i></button>
                       </td>
                     </tr>
                     
