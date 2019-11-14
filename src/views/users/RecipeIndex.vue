@@ -1,34 +1,44 @@
 <template>
   <div class="recipe-index">
-
-    <section class="module divider-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <form method="post">
-              <div class="table-responsive">
-                <table class="table cart-table">
-                  <tbody>
-                    <tr v-for="recipe in recipes">
-                      <td><img v-if="recipe.thumbnail" v-bind:src="recipe.thumbnail" :alt="recipe.title" class="cart-thumbnail"/></td>
-                      <td>
-                        <h6 class="m-b-5 brown-font">{{ recipe.title }}</h6><span class="text-xs">Contains {{ recipe.ingredients }}</span>
-                      </td>
-                      <td>
-                        <a class="btn btn-brand" target="_blank" v-bind:href="recipe.href">See more</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+    <section class="module-hero color-white parallax bg-black-alfa-30 bg-mod-2">
+      <div class="hero-caption">
+        <div class="hero-text">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <h2 class="m-0">Recipes</h2>
               </div>
-            </form>
+            </div>
           </div>
+        </div>       
+      </div>
+    </section>  
+    <section class="module divider" style="padding-top:20px">
+      <div class="container">
+        <div class="col-sm-12">
+          <form method="post">
+            <div class="table-responsive">
+              <table class="table cart-table">
+                <tbody>
+                  <tr v-for="recipe in recipes">
+                    <td><img v-if="recipe.thumbnail" v-bind:src="recipe.thumbnail" :alt="recipe.title" class="cart-thumbnail"/></td>
+                    <td>
+                      <h6 class="m-b-5 brown-font">{{ recipe.title }}</h6><span class="text-xs">Contains {{ recipe.ingredients }}</span>
+                    </td>
+                    <td>
+                      <a class="btn btn-brand" target="_blank" v-bind:href="recipe.href">See more</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
         </div>
       </div>
     </section>
-
   </div>
 </template>
+
 <style>
   a:link {
     text-decoration: none;

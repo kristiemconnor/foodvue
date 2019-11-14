@@ -1,6 +1,5 @@
 <template>
   <div class="users-profile">
-
     <section class="module-hero color-white parallax bg-black-alfa-30 bg-contact">
       <div class="hero-caption">
         <div class="hero-text">
@@ -11,7 +10,6 @@
         </div>
       </div>
     </section>
-
     <section class="module divider" style="padding-top:20px">
       <div class="container">
        <h4>{{ user.first_name }} {{ user.last_name }}</h4>
