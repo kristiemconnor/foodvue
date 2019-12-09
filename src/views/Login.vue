@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <section class="module-hero color-white parallax bg-black-alfa-30 bg-module-7" style="padding-top:5px">
+    <section class="module-hero color-white parallax bg-black-alfa-30 bg-mod-croiss" style="padding-top:5px">
       <div class="hero-caption">
         <div class="hero-text">
           <div class="container">

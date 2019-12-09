@@ -2252,10 +2252,15 @@ core-js-pure@^3.0.0:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.3.6.tgz#4c2378184acd8485a83ca9fdea201b844c554165"
   integrity sha512-Ynx7lkSF3M2e2+DQMXUZgUP6hTspBm+oZyhePwYQ7phSXGIsHiyKXj3BJ8FBvb0mEP3vzDzAMiVZTRXN5z7pvA==
 
-core-js@^3.3.2, core-js@^3.3.6:
+core-js@^3.3.2:
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.3.6.tgz#6ad1650323c441f45379e176ed175c0d021eac92"
   integrity sha512-u4oM8SHwmDuh5mWZdDg9UwNVq5s1uqq6ZDLLIs07VY+VJU91i3h4f3K/pgFvtUQPGdeStrZ+odKyfyt4EnKHfA==
+
+core-js@^3.4.0:
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.8.tgz#e0fc0c61f2ef90cbc10c531dbffaa46dfb7152dd"
+  integrity sha512-b+BBmCZmVgho8KnBUOXpvlqEMguko+0P+kXCwD4vIprsXC6ht1qgPxtb1OK6XgSlrySF71wkwBQ0Hv695bk9gQ==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -4805,6 +4810,11 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -7451,10 +7461,10 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue2-filters@^0.8.0-beta.3:
-  version "0.8.0-beta.3"
-  resolved "https://registry.yarnpkg.com/vue2-filters/-/vue2-filters-0.8.0-beta.3.tgz#ff071c7c0ab5f7e5de4e9b8ff22e7227ae8e2378"
-  integrity sha512-KaHqYdr6J3Yv0xZ4IGWYlW6xz6JesyqteO4/RFQmFx0REPKJ3W6Xc4WWGyaUJFjxMqRz5dLqkj+vGNP02mxFPg==
+vue2-filters@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/vue2-filters/-/vue2-filters-0.8.0.tgz#f9fc480e03a69352df329d17be6de968ee839cdd"
+  integrity sha512-K5W215ON7zjqEKdoJIsLDldAyVn3O9V2mHSbGin0QFgii/+yF7/EWppiqL/H9Ly/9srRKeTMILQFydLsBXKIpw==
 
 vue@^2.6.10:
   version "2.6.10"
