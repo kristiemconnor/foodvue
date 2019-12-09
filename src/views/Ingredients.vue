@@ -45,21 +45,16 @@
         </div>
       </div>
     </section>
-
     <section class="module divider-bottom" style="padding-top: 15px">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <h6>Ingredients on hand: {{ ingredients.length }}</h6>
-            <form method="post"> 
               <div class="table-responsive">
                 <table class="table cart-table">
-
                   <tbody>
                     <tr v-for="ingredient in orderBy(filterBy(ingredients, nameFilter, 'name'), sortAttribute)">
                       <td><input type="checkbox" :id="ingredient.id" :value="ingredient.name" v-model="checkedIngredients"></td>
-                      <td>
-                     
                       <td>
                         <h6 class="m-b-5"><a href="#">{{ingredient.name}}</a></h6><span class="text-xs">expires {{ relativeExpiration(ingredient.expiration) }}</span>
                       </td>
@@ -68,7 +63,6 @@
                       </td>
                       <td>
                         <input type="date" v-model="ingredient.expiration">
-
                       </td>
                       <td>
                         <button v-on:click="updateIngredient(ingredient)" class="btn btn-sm btn-brand">Edit</button>
@@ -77,12 +71,9 @@
                         <button v-on:click="destroyIngredient(ingredient)" class="btn btn-sm btn-brand">Delete <i class="icon_trash"></i></button>
                       </td>
                     </tr>
-                    
                   </tbody>
                 </table>
-              </div>
-              
-            </form>
+              </div> 
           </div>
         </div>
         <div class="row">
@@ -147,14 +138,13 @@ export default {
         });
     },
     updateIngredient: function(ingredient) {
-      console.log("edit");
+      // console.log("edit");
       var params = {
         name: ingredient.name,
         expiration: ingredient.expiration
       };
       axios.patch("/api/ingredients/" + ingredient.id, params).then(response => {
-        this.ingredient = {};
-        this.$router.push("/ingredients/me");
+        console.log(response.data);
       })
         .catch(error => {
           this.errors = error.response.data.errors;
